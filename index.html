@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cheri Baby – Quần Áo Trẻ Em QCCC & VNXK</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    /* ══ TOKENS ══ */
+    :root {
+      --pink:      #f9c6d0;
+      --pink-md:   #f4a7b9;
+      --pink-dk:   #e8839a;
+      --pink-deep: #d4607a;
+      --blush:     #fde8ed;
+      --cream:     #fff9f5;
+      --white:     #ffffff;
+      --beige:     #f7ede7;
+      --beige2:    #eeddd0;
+      --text:      #3d2a2a;
+      --muted:     #a07878;
+      --border:    rgba(232,131,154,.18);
+      --shadow:    rgba(232,131,154,.15);
+      --r:         20px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* ══ DECORATIVE BG ══ */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: -1;
+      background:
+        radial-gradient(ellipse 60% 50% at 10% 20%, rgba(249,198,208,.35) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 60% at 90% 80%, rgba(244,167,185,.25) 0%, transparent 70%),
+        var(--cream);
+    }
+
+    /* ══ HEADER ══ */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,249,245,.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: .9rem 1.5rem;
+    }
+    .header-inner {
+      max-width: 600px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem; font-weight: 700;
+      color: var(--pink-dk);
+      display: flex; align-items: center; gap: .35rem;
+    }
+    .logo-icon { font-size: 1.2rem; }
+    .header-cta {
+      display: inline-flex; align-items: center; gap: .4rem;
+      background: var(--pink-dk); color: #fff;
+      padding: .5rem 1.1rem; border-radius: 100px;
+      font-size: .82rem; font-weight: 700;
+      box-shadow: 0 4px 14px var(--shadow);
+      transition: background .2s, transform .2s;
+    }
+    .header-cta:hover { background: var(--pink-deep); transform: translateY(-1px); }
+
+    /* ══ HERO ══ */
+    .hero {
+      max-width: 600px; margin: 0 auto;
+      padding: 3rem 1.5rem 2rem;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .45rem;
+      background: var(--pink); color: var(--pink-deep);
+      padding: .35rem 1.1rem; border-radius: 100px;
+      font-size: .78rem; font-weight: 800;
+      letter-spacing: .4px; margin-bottom: 1.6rem;
+      border: 1px solid rgba(232,131,154,.25);
+    }
+    .badge-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--pink-dk);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { transform: scale(1); opacity: 1; }
+      50%      { transform: scale(1.4); opacity: .7; }
+    }
+
+    .hero-emoji {
+      font-size: 5.5rem; line-height: 1;
+      margin-bottom: 1.2rem;
+      animation: floaty 4s ease-in-out infinite;
+      display: block;
+    }
+    @keyframes floaty {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-10px); }
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.9rem, 6vw, 2.7rem);
+      line-height: 1.2; font-weight: 700;
+      margin-bottom: .9rem;
+      color: var(--text);
+    }
+    h1 em { font-style: italic; color: var(--pink-dk); }
+
+    .hero-sub {
+      font-size: .98rem; color: var(--muted);
+      line-height: 1.75; margin-bottom: 2rem;
+      font-weight: 500;
+    }
+
+    /* chips */
+    .chips {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: .5rem; margin-bottom: 2.2rem;
+    }
+    .chip {
+      background: var(--white); border: 1px solid var(--border);
+      padding: .38rem .95rem; border-radius: 100px;
+      font-size: .8rem; font-weight: 700; color: var(--pink-dk);
+      box-shadow: 0 2px 8px var(--shadow);
+    }
+
+    /* main CTA */
+    .btn-main {
+      display: inline-flex; align-items: center; gap: .6rem;
+      background: linear-gradient(135deg, var(--pink-dk), var(--pink-deep));
+      color: #fff;
+      padding: 1rem 2.4rem; border-radius: 100px;
+      font-size: 1.05rem; font-weight: 800;
+      box-shadow: 0 8px 28px rgba(212,96,122,.38);
+      transition: transform .25s, box-shadow .25s;
+      margin-bottom: .9rem;
+      width: 100%; max-width: 360px;
+      justify-content: center;
+    }
+    .btn-main:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 36px rgba(212,96,122,.5);
+    }
+    .btn-main svg { flex-shrink: 0; }
+
+    .btn-note { font-size: .78rem; color: var(--muted); font-weight: 500; }
+
+    /* ══ DIVIDER ══ */
+    .divider {
+      max-width: 600px; margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .divider-line {
+      border: none; border-top: 1px dashed var(--border);
+      margin: .5rem 0 2rem;
+    }
+
+    /* ══ TRUST CARDS ══ */
+    .trust {
+      max-width: 600px; margin: 0 auto;
+      padding: 0 1.5rem 2.5rem;
+    }
+    .trust-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem; font-weight: 700;
+      text-align: center; margin-bottom: 1.2rem;
+      color: var(--text);
+    }
+    .trust-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: .9rem;
+    }
+    .trust-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 1.3rem 1rem;
+      text-align: center;
+      box-shadow: 0 4px 16px var(--shadow);
+      transition: transform .25s, box-shadow .25s;
+    }
+    .trust-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px var(--shadow); }
+    .trust-icon { font-size: 2.2rem; margin-bottom: .6rem; }
+    .trust-label { font-weight: 800; font-size: .9rem; margin-bottom: .25rem; }
+    .trust-desc { font-size: .78rem; color: var(--muted); line-height: 1.5; }
+
+    /* ══ HIGHLIGHTS ══ */
+    .highlights {
+      max-width: 600px; margin: 0 auto;
+      padding: 0 1.5rem 2.5rem;
+    }
+    .hl-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem; font-weight: 700;
+      text-align: center; margin-bottom: 1.2rem;
+    }
+    .hl-list { display: flex; flex-direction: column; gap: .75rem; }
+    .hl-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 1rem 1.2rem;
+      display: flex; align-items: flex-start; gap: .9rem;
+      box-shadow: 0 3px 12px var(--shadow);
+      transition: transform .2s;
+    }
+    .hl-item:hover { transform: translateX(4px); }
+    .hl-ico { font-size: 1.6rem; flex-shrink: 0; margin-top: .1rem; }
+    .hl-text strong { display: block; font-size: .93rem; font-weight: 800; margin-bottom: .15rem; }
+    .hl-text span { font-size: .82rem; color: var(--muted); line-height: 1.5; }
+
+    /* ══ REVIEWS ══ */
+    .reviews {
+      max-width: 600px; margin: 0 auto;
+      padding: 0 1.5rem 2.5rem;
+    }
+    .rv-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem; font-weight: 700;
+      text-align: center; margin-bottom: 1.2rem;
+    }
+    .rv-list { display: flex; flex-direction: column; gap: .9rem; }
+    .rv-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 1.3rem 1.2rem;
+      box-shadow: 0 3px 12px var(--shadow);
+      position: relative; overflow: hidden;
+    }
+    .rv-card::before {
+      content: '"';
+      font-family: 'Playfair Display', serif;
+      font-size: 6rem; line-height: .7;
+      color: var(--pink); opacity: .6;
+      position: absolute; top: .5rem; right: 1rem;
+      pointer-events: none;
+    }
+    .rv-stars { color: #f6a623; font-size: .9rem; letter-spacing: 2px; margin-bottom: .6rem; }
+    .rv-text { font-size: .88rem; color: var(--text); line-height: 1.7; margin-bottom: .9rem; font-style: italic; }
+    .rv-author { display: flex; align-items: center; gap: .7rem; }
+    .rv-ava {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--pink), var(--pink-md));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: .85rem; color: var(--pink-deep);
+      flex-shrink: 0;
+    }
+    .rv-name { font-weight: 800; font-size: .85rem; }
+    .rv-meta { font-size: .75rem; color: var(--muted); }
+
+    /* ══ CTA BOTTOM ══ */
+    .cta-bottom {
+      max-width: 600px; margin: 0 auto 2.5rem;
+      padding: 0 1.5rem;
+    }
+    .cta-box {
+      background: linear-gradient(135deg, var(--pink) 0%, var(--blush) 100%);
+      border: 1px solid rgba(232,131,154,.3);
+      border-radius: 24px;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta-box::before { content: '🌸'; font-size: 5rem; position: absolute; top: -1.2rem; left: -1rem; opacity: .15; pointer-events: none; }
+    .cta-box::after  { content: '👗'; font-size: 5rem; position: absolute; bottom: -1.2rem; right: -1rem; opacity: .15; pointer-events: none; }
+    .cta-box h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem; font-weight: 700;
+      margin-bottom: .6rem; color: var(--text);
+    }
+    .cta-box p { font-size: .9rem; color: var(--muted); margin-bottom: 1.6rem; font-weight: 500; line-height: 1.6; }
+    .btn-cta2 {
+      display: inline-flex; align-items: center; gap: .55rem;
+      background: var(--text); color: #fff;
+      padding: .95rem 2rem; border-radius: 100px;
+      font-size: .98rem; font-weight: 800;
+      box-shadow: 0 8px 24px rgba(61,42,42,.25);
+      transition: transform .25s, box-shadow .25s;
+      width: 100%; max-width: 320px;
+      justify-content: center;
+    }
+    .btn-cta2:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(61,42,42,.35); }
+
+    /* ══ FOOTER ══ */
+    footer {
+      background: var(--text); color: rgba(255,255,255,.65);
+      text-align: center; padding: 2rem 1.5rem;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem; color: var(--pink);
+      margin-bottom: .8rem;
+    }
+    .footer-links {
+      display: flex; justify-content: center; flex-wrap: wrap;
+      gap: 1.2rem; margin-bottom: .8rem;
+    }
+    .footer-links a { font-size: .82rem; color: rgba(255,255,255,.55); transition: color .2s; }
+    .footer-links a:hover { color: var(--pink); }
+    .footer-copy { font-size: .73rem; color: rgba(255,255,255,.3); }
+
+    /* ══ FLOATING BUTTON ══ */
+    .float {
+      position: fixed; bottom: 1.6rem; right: 1.4rem; z-index: 500;
+      display: flex; flex-direction: column; align-items: flex-end; gap: .5rem;
+    }
+    .float-label {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px 10px 0 10px;
+      padding: .45rem .85rem;
+      font-size: .75rem; font-weight: 700; color: var(--text);
+      box-shadow: 0 4px 14px var(--shadow);
+      white-space: nowrap;
+      animation: slideIn .5s .6s both;
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(12px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    .float-btn {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: #1877f2;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 22px rgba(24,119,242,.45);
+      transition: transform .25s, box-shadow .25s;
+    }
+    .float-btn:hover { transform: scale(1.1); box-shadow: 0 10px 30px rgba(24,119,242,.55); }
+    .float-btn svg { width: 28px; height: 28px; fill: #fff; }
+
+    /* ══ REVEAL ══ */
+    .reveal {
+      opacity: 0; transform: translateY(22px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: .05s; }
+    .d2 { transition-delay: .12s; }
+    .d3 { transition-delay: .19s; }
+    .d4 { transition-delay: .26s; }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <span class="logo-icon">🌸</span>
+      Cheri Baby
+    </div>
+    <a href="https://www.facebook.com/YOUR_PAGE" target="_blank" class="header-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      Nhắn tin ngay
+    </a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">
+    <span class="badge-dot"></span>
+    Đang nhận đơn hàng mới
+  </div>
+  <span class="hero-emoji">👗</span>
+  <h1>Quần áo trẻ em<br/><em>QCCC & VNXK</em><br/>chuẩn chất — giá tốt</h1>
+  <p class="hero-sub">
+    Hàng order chất lượng cao cấp, xuất khẩu Việt Nam.<br/>
+    Mẫu đẹp · Vải mịn · An toàn cho bé yêu 💕
+  </p>
+  <div class="chips">
+    <span class="chip">✅ Hàng QCCC</span>
+    <span class="chip">🇻🇳 VNXK</span>
+    <span class="chip">🚀 Giao nhanh</span>
+    <span class="chip">💰 Giá tốt</span>
+    <span class="chip">🔄 Đổi trả dễ</span>
+  </div>
+  <a href="https://m.me/YOUR_PAGE" target="_blank" class="btn-main">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 4.975 0 11.111c0 3.497 1.745 6.616 4.472 8.652V24l4.086-2.242c1.09.301 2.246.464 3.442.464 6.626 0 12-4.974 12-11.111C24 4.975 18.626 0 12 0zm1.193 14.963l-3.056-3.259-5.963 3.259 6.559-6.963 3.13 3.259 5.889-3.259-6.559 6.963z"/></svg>
+    Inbox để xem hàng ngay
+  </a>
+  <p class="btn-note">💬 Phản hồi nhanh · Tư vấn miễn phí</p>
+</section>
+
+<div class="divider"><hr class="divider-line"/></div>
+
+<!-- TRUST CARDS -->
+<section class="trust">
+  <p class="trust-title reveal">Tại sao mẹ chọn Cheri Baby? 🌟</p>
+  <div class="trust-grid">
+    <div class="trust-card reveal d1">
+      <div class="trust-icon">🏆</div>
+      <div class="trust-label">Hàng QCCC</div>
+      <div class="trust-desc">Quảng Châu cao cấp, chọn lọc kỹ, đẹp như hình</div>
+    </div>
+    <div class="trust-card reveal d2">
+      <div class="trust-icon">🇻🇳</div>
+      <div class="trust-label">Hàng VNXK</div>
+      <div class="trust-desc">Xuất khẩu Việt Nam, chất vải chuẩn, an toàn cho bé</div>
+    </div>
+    <div class="trust-card reveal d3">
+      <div class="trust-icon">💰</div>
+      <div class="trust-label">Giá tốt nhất</div>
+      <div class="trust-desc">Nhập thẳng nguồn, không qua trung gian, giá cực rẻ</div>
+    </div>
+    <div class="trust-card reveal d4">
+      <div class="trust-icon">🚀</div>
+      <div class="trust-label">Giao hàng nhanh</div>
+      <div class="trust-desc">Hỏa tốc nội thành, toàn quốc 1–3 ngày</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr class="divider-line"/></div>
+
+<!-- HIGHLIGHTS -->
+<section class="highlights">
+  <p class="hl-title reveal">Hàng của shop như thế nào? 👇</p>
+  <div class="hl-list">
+    <div class="hl-item reveal d1">
+      <span class="hl-ico">👕</span>
+      <div class="hl-text">
+        <strong>Chất vải an toàn, mềm mịn</strong>
+        <span>100% cotton hoặc vải cao cấp, không gây kích ứng da nhạy cảm của bé. Thoáng mát, thấm hút tốt.</span>
+      </div>
+    </div>
+    <div class="hl-item reveal d2">
+      <span class="hl-ico">✨</span>
+      <div class="hl-text">
+        <strong>Mẫu đẹp, cập nhật liên tục</strong>
+        <span>Hàng order theo mùa, cập nhật mẫu mới mỗi tuần. Đa dạng size từ sơ sinh đến 10 tuổi.</span>
+      </div>
+    </div>
+    <div class="hl-item reveal d3">
+      <span class="hl-ico">📦</span>
+      <div class="hl-text">
+        <strong>Đóng gói cẩn thận, uy tín</strong>
+        <span>Hàng được kiểm tra kỹ trước khi giao. Cam kết đúng mẫu, đúng size, đúng chất.</span>
+      </div>
+    </div>
+    <div class="hl-item reveal d4">
+      <span class="hl-ico">🔄</span>
+      <div class="hl-text">
+        <strong>Đổi trả dễ dàng trong 7 ngày</strong>
+        <span>Không hài lòng về chất lượng? Shop hoàn tiền hoặc đổi hàng, không hỏi nhiều.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr class="divider-line"/></div>
+
+<!-- REVIEWS -->
+<section class="reviews">
+  <p class="rv-title reveal">Mẹ bỉm nói gì về shop? 💬</p>
+  <div class="rv-list">
+    <div class="rv-card reveal d1">
+      <div class="rv-stars">★★★★★</div>
+      <p class="rv-text">Mua đồ VNXK cho con, vải mềm và an toàn lắm mẹ ơi! Inbox hỏi là shop trả lời ngay, tư vấn size rất nhiệt tình. Đã mua lần 3 rồi, không chỗ nào bằng!</p>
+      <div class="rv-author">
+        <div class="rv-ava">TH</div>
+        <div>
+          <div class="rv-name">Thanh Hằng</div>
+          <div class="rv-meta">Mẹ bé 2 tuổi · TP.HCM</div>
+        </div>
+      </div>
+    </div>
+    <div class="rv-card reveal d2">
+      <div class="rv-stars">★★★★★</div>
+      <p class="rv-text">Hàng QCCC đẹp y hình, con mặc vào ai cũng khen. Giá hợp lý, ship nhanh, đóng gói sạch sẽ. Shop thật sự uy tín, sẽ giới thiệu cho cả hội mẹ bầu!</p>
+      <div class="rv-author">
+        <div class="rv-ava">ML</div>
+        <div>
+          <div class="rv-name">Minh Ly</div>
+          <div class="rv-meta">Mẹ bé 8 tháng · Hà Nội</div>
+        </div>
+      </div>
+    </div>
+    <div class="rv-card reveal d3">
+      <div class="rv-stars">★★★★★</div>
+      <p class="rv-text">Order bộ đồ VNXK cho bé, nhận hàng là mê ngay. Chất cotton dày dặn, đường may tỉ mỉ. Nhắn tin lúc 10h tối shop vẫn reply, siêu nhiệt tình 🥰</p>
+      <div class="rv-author">
+        <div class="rv-ava">PT</div>
+        <div>
+          <div class="rv-name">Phương Thảo</div>
+          <div class="rv-meta">Mẹ bé 4 tuổi · Đà Nẵng</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BOTTOM -->
+<div class="cta-bottom">
+  <div class="cta-box reveal">
+    <h2>Inbox ngay để xem<br/>hàng mới về hôm nay! 🎁</h2>
+    <p>Nhắn tin để được tư vấn miễn phí, xem album hàng mới<br/>và nhận ưu đãi dành riêng cho khách inbox.</p>
+    <a href="https://m.me/YOUR_PAGE" target="_blank" class="btn-cta2">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 4.975 0 11.111c0 3.497 1.745 6.616 4.472 8.652V24l4.086-2.242c1.09.301 2.246.464 3.442.464 6.626 0 12-4.974 12-11.111C24 4.975 18.626 0 12 0zm1.193 14.963l-3.056-3.259-5.963 3.259 6.559-6.963 3.13 3.259 5.889-3.259-6.559 6.963z"/></svg>
+      Chat với shop ngay
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">🌸 Cheri Baby</div>
+  <div class="footer-links">
+    <a href="tel:0901234567">📞 0901 234 567</a>
+    <a href="https://www.facebook.com/YOUR_PAGE" target="_blank">📘 Facebook</a>
+    <a href="https://m.me/YOUR_PAGE" target="_blank">💬 Messenger</a>
+  </div>
+  <div class="footer-copy">© 2026 Cheri Baby · Quần áo trẻ em QCCC & VNXK 💕</div>
+</footer>
+
+<!-- FLOATING CHAT -->
+<div class="float">
+  <div class="float-label" id="floatLabel">💬 Inbox xem hàng mới!</div>
+  <a href="https://m.me/YOUR_PAGE" target="_blank" class="float-btn">
+    <svg viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 4.975 0 11.111c0 3.497 1.745 6.616 4.472 8.652V24l4.086-2.242c1.09.301 2.246.464 3.442.464 6.626 0 12-4.974 12-11.111C24 4.975 18.626 0 12 0zm1.193 14.963l-3.056-3.259-5.963 3.259 6.559-6.963 3.13 3.259 5.889-3.259-6.559 6.963z"/></svg>
+  </a>
+</div>
+
+<script>
+  // Scroll reveal
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.13 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Hide float label after 6s
+  setTimeout(() => {
+    const lb = document.getElementById('floatLabel');
+    if (lb) { lb.style.transition = 'opacity .5s'; lb.style.opacity = '0'; }
+  }, 6000);
+</script>
+</body>
+</html>
